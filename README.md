@@ -1,7 +1,7 @@
 # Projeto Gestão de Obra - Obra Prima
 <p align="justify">GESTÃO DE OBRAS 
 <br>APLICATIVO OBRA PRIMA
-Desenvolvido pelo discentes: 
+<br>Desenvolvido pelo discentes: 
 <br>Gustavo Soares Da Silva
 <br>Nathalia Charles Matesz Bueno
 <br>Vinicius Batista Checchetto
