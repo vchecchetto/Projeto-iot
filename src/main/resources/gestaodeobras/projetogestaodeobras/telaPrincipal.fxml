@@ -1,0 +1,2227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.SubScene?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.BoxBlur?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestaodeobras.projetogestaodeobras.TelaPrincipal">
+   <children>
+      <VBox prefHeight="720.0" prefWidth="1280.0">
+        <children>
+            <MenuBar prefHeight="0.0" prefWidth="600.0">
+               <menus>
+                  <Menu mnemonicParsing="false" text="Menu">
+                     <items>
+                        <MenuItem fx:id="menuItemInicio" mnemonicParsing="false" onAction="#abrirInicio" text="Início" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem fx:id="menuItemAgenda" mnemonicParsing="false" onAction="#abrirAgenda" text="Agenda" />
+                        <MenuItem fx:id="menuItemClientes" mnemonicParsing="false" onAction="#abrirClientes" text="Clientes" />
+                        <MenuItem fx:id="menuItemPag" mnemonicParsing="false" onAction="#abrirPagamentos" text="Pagamentos" />
+                        <MenuItem fx:id="menuItemFerramentas" mnemonicParsing="false" onAction="#abrirFerramentas" text="Ferramentas" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem fx:id="menuItemDesconectar" mnemonicParsing="false" onAction="#Desconectar" text="Desconectar" />
+                        <MenuItem fx:id="menuItemSair" mnemonicParsing="false" onAction="#sair" text="Sair" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Atalhos">
+                    <items>
+                        <MenuItem fx:id="menuItemAddServ" mnemonicParsing="false" onAction="#adicionarServico" text="Adicionar Serviço" />
+                      <MenuItem fx:id="menuItemCadastrarCliente" mnemonicParsing="false" onAction="#abrirCadastroDeClientes" text="Cadastrar Cliente" />
+                        <MenuItem fx:id="menuItemBuscarFerramenta" mnemonicParsing="false" onAction="#abrirBuscaDeFerramentas" text="Buscar Ferramenta" />
+                    </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Ajuda">
+                     <items>
+                        <MenuItem fx:id="menuItemComoUsar" mnemonicParsing="false" text="Como Usar" />
+                        <MenuItem fx:id="menuItemSobre" mnemonicParsing="false" onAction="#mostrarSobre" text="Sobre" />
+                     </items>
+                  </Menu>
+               </menus>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </MenuBar>
+            <AnchorPane VBox.vgrow="ALWAYS">
+               <children>
+                  <GridPane prefHeight="25.0" prefWidth="887.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="15.0">
+                    <columnConstraints>
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="200.0" minWidth="10.0" prefWidth="200.0" />
+                      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" />
+                      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="200.0" minWidth="10.0" prefWidth="200.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="BOTTOM" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <padding>
+                        <Insets left="25.0" right="25.0" />
+                     </padding>
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="MENU">
+                           <font>
+                              <Font name="Arial" size="20.0" />
+                           </font>
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="ATALHOS" GridPane.columnIndex="2">
+                           <font>
+                              <Font name="Arial" size="20.0" />
+                           </font>
+                        </Text>
+                        <Label fx:id="hora" text="hora" GridPane.columnIndex="1">
+                           <font>
+                              <Font name="Arial" size="20.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </GridPane>
+                  <GridPane prefHeight="573.0" prefWidth="250.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="55.0">
+                    <columnConstraints>
+                      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <padding>
+                        <Insets bottom="25.0" left="25.0" right="25.0" />
+                     </padding>
+                     <children>
+                        <GridPane>
+                           <columnConstraints>
+                              <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="55.0" valignment="BOTTOM" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="135.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Button fx:id="botaoAgenda" mnemonicParsing="false" onAction="#abrirAgenda" prefHeight="105.0" prefWidth="202.0" GridPane.rowIndex="1">
+                                 <graphic>
+                                    <ImageView fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@img/agenda.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="AGENDA">
+                                 <font>
+                                    <Font name="Arial" size="14.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </GridPane>
+                        <GridPane GridPane.rowIndex="1">
+                           <columnConstraints>
+                              <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="55.0" valignment="BOTTOM" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="135.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="CLIENTES">
+                                 <font>
+                                    <Font name="Arial" size="14.0" />
+                                 </font>
+                              </Text>
+                              <Button fx:id="botaoClientes" mnemonicParsing="false" onAction="#abrirClientes" prefHeight="105.0" prefWidth="202.0" GridPane.rowIndex="1">
+                                 <graphic>
+                                    <ImageView fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@img/clientes.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                           </children>
+                        </GridPane>
+                        <GridPane GridPane.rowIndex="2">
+                           <columnConstraints>
+                              <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="55.0" valignment="BOTTOM" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="135.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="PAGAMENTOS">
+                                 <font>
+                                    <Font name="Arial" size="14.0" />
+                                 </font>
+                              </Text>
+                              <Button fx:id="botaoPagamentos" mnemonicParsing="false" onAction="#abrirPagamentos" prefHeight="105.0" prefWidth="202.0" GridPane.rowIndex="1">
+                                 <graphic>
+                                    <ImageView fitWidth="115.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@img/pagamentos.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                           </children>
+                        </GridPane>
+                        <GridPane GridPane.rowIndex="3">
+                           <columnConstraints>
+                              <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="55.0" valignment="BOTTOM" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="135.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="FERRAMENTAS">
+                                 <font>
+                                    <Font name="Arial" size="14.0" />
+                                 </font>
+                              </Text>
+                              <Button fx:id="botaoFerramentas" mnemonicParsing="false" onAction="#abrirFerramentas" prefHeight="105.0" prefWidth="201.0" GridPane.rowIndex="1">
+                                 <graphic>
+                                    <ImageView fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@img/ferramentas.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                              </Button>
+                           </children>
+                        </GridPane>
+                     </children>
+                  </GridPane>
+                  <GridPane fx:id="gridPaneInicio" layoutX="342.0" layoutY="1.0" prefHeight="573.0" prefWidth="215.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="250.0" AnchorPane.topAnchor="55.0">
+                     <columnConstraints>
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints maxHeight="200.0" minHeight="10.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="205.0" minHeight="10.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="205.0" minHeight="10.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <padding>
+                        <Insets bottom="25.0" />
+                     </padding>
+                     <children>
+                        <GridPane>
+                          <columnConstraints>
+                            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" prefWidth="275.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@img/logo.png" />
+                                 </image>
+                              </ImageView>
+                              <GridPane GridPane.columnIndex="1">
+                                <columnConstraints>
+                                  <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                  <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <GridPane.margin>
+                                    <Insets bottom="80.0" left="40.0" right="40.0" top="80.0" />
+                                 </GridPane.margin>
+                                 <children>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Bem-vindo(a)">
+                                       <font>
+                                          <Font name="Arial" size="24.0" />
+                                       </font>
+                                       <GridPane.margin>
+                                          <Insets right="15.0" />
+                                       </GridPane.margin>
+                                    </Text>
+                                    <Label fx:id="labelUsuario" text="Usuario" GridPane.columnIndex="1">
+                                       <font>
+                                          <Font name="Arial" size="24.0" />
+                                       </font>
+                                       <GridPane.margin>
+                                          <Insets left="15.0" />
+                                       </GridPane.margin>
+                                    </Label>
+                                 </children>
+                              </GridPane>
+                           </children>
+                        </GridPane>
+                        <GridPane alignment="CENTER" GridPane.rowIndex="1">
+                          <columnConstraints>
+                            <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="280.0" minWidth="10.0" prefWidth="280.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints maxHeight="45.0" valignment="CENTER" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="45.0" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="45.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="45.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Próximo Serviço">
+                                 <GridPane.margin>
+                                    <Insets left="120.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font name="Arial Bold" size="18.0" />
+                                 </font>
+                              </Text>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Cliente:" GridPane.rowIndex="1">
+                                 <GridPane.margin>
+                                    <Insets left="120.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font name="Arial" size="18.0" />
+                                 </font>
+                              </Text>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Data de Início:" GridPane.rowIndex="2">
+                                 <GridPane.margin>
+                                    <Insets left="120.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font name="Arial" size="18.0" />
+                                 </font>
+                              </Text>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Endereço:" GridPane.rowIndex="3">
+                                 <GridPane.margin>
+                                    <Insets left="120.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font name="Arial" size="18.0" />
+                                 </font>
+                              </Text>
+                              <Label fx:id="proximoCliente" text="Próximo Cliente" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Arial" size="18.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets />
+                                 </GridPane.margin>
+                              </Label>
+                              <Label fx:id="dataInicioProximoCliente" text="Data de Ínicio" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font name="Arial" size="18.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets />
+                                 </GridPane.margin>
+                              </Label>
+                              <Label fx:id="enderecoProximoCliente" text="Endereço" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                 <font>
+                                    <Font name="Arial" size="18.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets />
+                                 </GridPane.margin>
+                              </Label>
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <GridPane.margin>
+                              <Insets />
+                           </GridPane.margin>
+                           <padding>
+                              <Insets left="10.0" right="10.0" />
+                           </padding>
+                        </GridPane>
+                        <GridPane alignment="CENTER" GridPane.rowIndex="2">
+                           <columnConstraints>
+                              <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="280.0" minWidth="10.0" prefWidth="280.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints maxHeight="45.0" valignment="CENTER" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="45.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="45.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="45.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Serviço Atual">
+                                 <GridPane.margin>
+                                    <Insets left="120.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font name="Arial Bold" size="18.0" />
+                                 </font>
+                              </Text>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Cliente:" GridPane.rowIndex="1">
+                                 <GridPane.margin>
+                                    <Insets left="120.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font name="Arial" size="18.0" />
+                                 </font>
+                              </Text>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Data de Término:" GridPane.rowIndex="2">
+                                 <GridPane.margin>
+                                    <Insets left="120.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font name="Arial" size="18.0" />
+                                 </font>
+                              </Text>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Endereço:" GridPane.rowIndex="3">
+                                 <GridPane.margin>
+                                    <Insets left="120.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font name="Arial" size="18.0" />
+                                 </font>
+                              </Text>
+                              <Label fx:id="clienteAtual" text="Cliente Atual" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Arial" size="18.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets />
+                                 </GridPane.margin>
+                              </Label>
+                              <Label fx:id="dataFimClienteAtual" text="Data de Término" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font name="Arial" size="18.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets />
+                                 </GridPane.margin>
+                              </Label>
+                              <Label fx:id="enderecoClienteAtual" text="Endereço" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                 <font>
+                                    <Font name="Arial" size="18.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets />
+                                 </GridPane.margin>
+                              </Label>
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <padding>
+                              <Insets left="10.0" right="10.0" />
+                           </padding>
+                        </GridPane>
+                     </children>
+                  </GridPane>
+                  <GridPane layoutX="10.0" layoutY="10.0" prefHeight="573.0" prefWidth="250.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="55.0">
+                     <columnConstraints>
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <padding>
+                        <Insets bottom="25.0" left="25.0" right="25.0" />
+                     </padding>
+                     <children>
+                        <GridPane>
+                          <columnConstraints>
+                            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="45.0" valignment="BOTTOM" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="135.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="INÍCIO">
+                                 <font>
+                                    <Font name="Arial" size="14.0" />
+                                 </font>
+                              </Text>
+                              <Button fx:id="botaoInicio" mnemonicParsing="false" onAction="#abrirInicio" prefHeight="105.0" prefWidth="202.0" GridPane.rowIndex="1">
+                                 <graphic>
+                                    <ImageView fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@img/inicio.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                           </children>
+                        </GridPane>
+                        <GridPane GridPane.rowIndex="1">
+                          <columnConstraints>
+                            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="45.0" valignment="BOTTOM" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="135.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="CADASTRAR CLIENTE">
+                                 <font>
+                                    <Font name="Arial" size="14.0" />
+                                 </font>
+                              </Text>
+                              <Button fx:id="botaoCadastrarClientes" mnemonicParsing="false" onAction="#abrirCadastroDeClientes" prefHeight="105.0" prefWidth="202.0" GridPane.rowIndex="1">
+                                 <graphic>
+                                    <ImageView fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@img/cadastrarcliente.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                           </children>
+                        </GridPane>
+                        <GridPane GridPane.rowIndex="2">
+                           <columnConstraints>
+                              <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="45.0" valignment="BOTTOM" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="135.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="BUSCAR FERRAMENTA">
+                                 <font>
+                                    <Font name="Arial" size="14.0" />
+                                 </font>
+                              </Text>
+                              <Button fx:id="botaoBuscarFerramenta" mnemonicParsing="false" onAction="#abrirBuscaDeFerramentas" prefHeight="105.0" prefWidth="202.0" GridPane.rowIndex="1">
+                                 <graphic>
+                                    <ImageView fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@img/procurarferramenta.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                           </children>
+                        </GridPane>
+                        <GridPane GridPane.rowIndex="3">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <GridPane>
+                                 <columnConstraints>
+                                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="45.0" valignment="BOTTOM" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="135.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <children>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="SALVAR">
+                                       <font>
+                                          <Font name="Arial" size="14.0" />
+                                       </font>
+                                    </Text>
+                                    <Button fx:id="botaoNuvem" mnemonicParsing="false" onAction="#subirNuvem" prefHeight="105.0" prefWidth="202.0" GridPane.rowIndex="1">
+                                       <graphic>
+                                          <ImageView fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@img/cloud.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                       <GridPane.margin>
+                                          <Insets />
+                                       </GridPane.margin>
+                                    </Button>
+                                 </children>
+                                 <GridPane.margin>
+                                    <Insets />
+                                 </GridPane.margin>
+                                 <padding>
+                                    <Insets right="10.0" />
+                                 </padding>
+                              </GridPane>
+                              <GridPane GridPane.columnIndex="1">
+                                 <columnConstraints>
+                                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="45.0" valignment="BOTTOM" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="135.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <children>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="SAIR">
+                                       <font>
+                                          <Font name="Arial" size="14.0" />
+                                       </font>
+                                    </Text>
+                                    <Button fx:id="botaoSair" mnemonicParsing="false" onAction="#sair" prefHeight="105.0" prefWidth="202.0" GridPane.rowIndex="1">
+                                       <graphic>
+                                          <ImageView fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@img/sair.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                       <GridPane.margin>
+                                          <Insets />
+                                       </GridPane.margin>
+                                    </Button>
+                                 </children>
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding>
+                              </GridPane>
+                           </children>
+                           <GridPane.margin>
+                              <Insets />
+                           </GridPane.margin>
+                        </GridPane>
+                     </children>
+                  </GridPane>
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </AnchorPane>
+        </children>
+      </VBox>
+      <StackPane fx:id="stackPaneAgenda" layoutY="79.0" prefHeight="615.0" prefWidth="780.0" visible="false" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="250.0" AnchorPane.topAnchor="80.0">
+         <children>
+            <SubScene height="615.0" width="780.0">
+              <root>
+                <Region />
+              </root>
+               <StackPane.margin>
+                  <Insets />
+               </StackPane.margin>
+            </SubScene>
+            <GridPane>
+              <columnConstraints>
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="100.0" valignment="CENTER" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="550.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <GridPane GridPane.rowIndex="1">
+                    <columnConstraints>
+                      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints maxHeight="50.0" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <GridPane GridPane.rowIndex="1">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <GridPane>
+                                <columnConstraints>
+                                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints maxHeight="55.0" minHeight="10.0" prefHeight="55.0" vgrow="SOMETIMES" />
+                                  <RowConstraints maxHeight="35.0" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <GridPane GridPane.rowIndex="1">
+                                      <columnConstraints>
+                                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints maxHeight="55.0" minHeight="10.0" prefHeight="55.0" valignment="CENTER" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                       <children>
+                                          <Label text="Dom">
+                                             <font>
+                                                <Font name="Arial Bold" size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Label text="Seg" GridPane.columnIndex="1">
+                                             <font>
+                                                <Font name="Arial Bold" size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Label text="Ter" GridPane.columnIndex="2">
+                                             <font>
+                                                <Font name="Arial Bold" size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Label text="Qua" GridPane.columnIndex="3">
+                                             <font>
+                                                <Font name="Arial Bold" size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Label text="Qui" GridPane.columnIndex="4">
+                                             <font>
+                                                <Font name="Arial Bold" size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Label text="Sex" GridPane.columnIndex="5">
+                                             <font>
+                                                <Font name="Arial Bold" size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Label text="Sáb" GridPane.columnIndex="6">
+                                             <font>
+                                                <Font name="Arial Bold" size="18.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </GridPane>
+                                    <GridPane>
+                                      <columnConstraints>
+                                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="85.0" minWidth="10.0" prefWidth="85.0" />
+                                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="180.0" minWidth="10.0" prefWidth="180.0" />
+                                          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="120.0" minWidth="10.0" prefWidth="120.0" />
+                                          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="85.0" minWidth="10.0" prefWidth="85.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                       <children>
+                                          <Label fx:id="mes" text="Mês" GridPane.columnIndex="1">
+                                             <font>
+                                                <Font name="Arial Bold" size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="ano" text="Ano" GridPane.columnIndex="2">
+                                             <font>
+                                                <Font name="Arial Bold" size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Button mnemonicParsing="false" onAction="#avancarUmMes" text="&gt;" GridPane.columnIndex="3">
+                                             <font>
+                                                <Font name="System Bold" size="14.0" />
+                                             </font>
+                                          </Button>
+                                          <Button mnemonicParsing="false" onAction="#voltarUmMes" text="&lt;">
+                                             <font>
+                                                <Font name="System Bold" size="14.0" />
+                                             </font>
+                                          </Button>
+                                       </children>
+                                       <GridPane.margin>
+                                          <Insets left="150.0" right="150.0" />
+                                       </GridPane.margin>
+                                    </GridPane>
+                                    <FlowPane fx:id="calendario" hgap="5.0" prefHeight="380.0" prefWidth="770.0" vgap="5.0" GridPane.rowIndex="2">
+                                       <GridPane.margin>
+                                          <Insets />
+                                       </GridPane.margin></FlowPane>
+                                 </children>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <GridPane.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </GridPane.margin>
+                              </GridPane>
+                           </children>
+                        </GridPane>
+                        <GridPane>
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Button fx:id="botaoAddServico" mnemonicParsing="false" onAction="#adicionarServico" text="Adicionar Serviço" GridPane.columnIndex="1">
+                                 <font>
+                                    <Font name="Arial Bold" size="16.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets right="15.0" />
+                                 </GridPane.margin>
+                              </Button>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Calendário">
+                                 <font>
+                                    <Font name="Arial Bold" size="22.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets left="15.0" />
+                                 </GridPane.margin>
+                              </Text>
+                           </children>
+                        </GridPane>
+                     </children>
+                  </GridPane>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Agenda">
+                     <font>
+                        <Font name="Arial Bold" size="22.0" />
+                     </font>
+                  </Text>
+               </children>
+            </GridPane>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </StackPane>
+      <StackPane fx:id="stackPaneClientes" layoutX="260.0" layoutY="90.0" prefHeight="615.0" prefWidth="780.0" visible="false" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="250.0" AnchorPane.topAnchor="80.0">
+         <children>
+            <SubScene height="615.0" layoutX="10.0" layoutY="10.0" width="780.0">
+               <root>
+                  <Region />
+               </root>
+            </SubScene>
+            <GridPane>
+               <columnConstraints>
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="100.0" valignment="CENTER" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="550.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Clientes">
+                     <font>
+                        <Font name="Arial Bold" size="22.0" />
+                     </font>
+                  </Text>
+                  <GridPane GridPane.rowIndex="1">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints maxHeight="350.0" minHeight="10.0" prefHeight="350.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <TableView fx:id="tabelaClientes" prefHeight="200.0" prefWidth="200.0">
+                          <columns>
+                            <TableColumn fx:id="tipoClienteCol" maxWidth="1.7976931348623157E308" prefWidth="40.0" reorderable="false" resizable="false" text="Tipo" />
+                            <TableColumn fx:id="nomeCol" maxWidth="1.7976931348623157E308" prefWidth="140.0" reorderable="false" resizable="false" text="Nome" />
+                              <TableColumn fx:id="cpfCnpjCol" maxWidth="1.7976931348623157E308" prefWidth="105.0" reorderable="false" resizable="false" text="CPF / CNPJ" />
+                              <TableColumn fx:id="enderecoCol" maxWidth="1.7976931348623157E308" prefWidth="150.0" reorderable="false" resizable="false" text="Endereço" />
+                              <TableColumn fx:id="bairroCol" maxWidth="1.7976931348623157E308" prefWidth="90.0" reorderable="false" resizable="false" text="Bairro" />
+                              <TableColumn fx:id="celularCol" maxWidth="1.7976931348623157E308" prefWidth="90.0" reorderable="false" resizable="false" text="Celular" />
+                              <TableColumn fx:id="emailCol" maxWidth="1.7976931348623157E308" prefWidth="140.0" reorderable="false" resizable="false" text="E-mail" />
+                          </columns>
+                           <GridPane.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </GridPane.margin>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </TableView>
+                        <GridPane GridPane.rowIndex="1">
+                          <columnConstraints>
+                            <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="TOP" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <GridPane GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="240.0" minWidth="10.0" prefWidth="240.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="TOP" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <TextField fx:id="campoBuscarClientes" promptText="Digite Aqui">
+                                       <GridPane.margin>
+                                          <Insets left="10.0" right="20.0" top="12.0" />
+                                       </GridPane.margin>
+                                       <font>
+                                          <Font name="Arial" size="16.0" />
+                                       </font>
+                                    </TextField>
+                                    <Button fx:id="botaoConfirmarBuscaClientes" mnemonicParsing="false" onAction="#buscarClientes" prefHeight="32.0" prefWidth="45.0" text="OK" GridPane.columnIndex="1">
+                                       <GridPane.margin>
+                                          <Insets top="11.0" />
+                                       </GridPane.margin>
+                                       <font>
+                                          <Font name="Arial Bold" size="14.0" />
+                                       </font>
+                                    </Button>
+                                 </children>
+                              </GridPane>
+                              <ComboBox fx:id="comboBoxProcurarCliente" prefWidth="150.0" promptText="Nome" style="-fx-font-size: 16px; -fx-font-family: 'Arial';" GridPane.rowIndex="1">
+                                 <GridPane.margin>
+                                    <Insets right="15.0" top="10.0" />
+                                 </GridPane.margin>
+                              </ComboBox>
+                              <GridPane>
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Procurar Cliente" GridPane.columnIndex="1">
+                                       <font>
+                                          <Font name="Arial" size="22.0" />
+                                       </font>
+                                       <GridPane.margin>
+                                          <Insets left="20.0" top="45.0" />
+                                       </GridPane.margin>
+                                    </Text>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="1. Pessoa Física">
+                                       <GridPane.margin>
+                                          <Insets bottom="70.0" left="20.0" />
+                                       </GridPane.margin>
+                                       <font>
+                                          <Font name="Arial" size="14.0" />
+                                       </font>
+                                    </Text>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="2. Pessoa Jurídica">
+                                       <font>
+                                          <Font name="Arial" size="14.0" />
+                                       </font>
+                                       <GridPane.margin>
+                                          <Insets bottom="25.0" left="20.0" />
+                                       </GridPane.margin>
+                                    </Text>
+                                 </children>
+                              </GridPane>
+                              <GridPane GridPane.columnIndex="1">
+                                <columnConstraints>
+                                    <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" />
+                                  <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="105.0" minWidth="10.0" prefWidth="105.0" />
+                                  <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="120.0" minWidth="10.0" prefWidth="120.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="TOP" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <Button fx:id="botaoEditarRegistro" mnemonicParsing="false" onAction="#editarRegistroCliente" prefWidth="90.0" text="Editar" GridPane.columnIndex="2">
+                                       <font>
+                                          <Font name="Arial Bold" size="16.0" />
+                                       </font>
+                                       <GridPane.margin>
+                                          <Insets right="15.0" top="5.0" />
+                                       </GridPane.margin>
+                                    </Button>
+                                    <Button fx:id="botaoExcluirRegistroCliente" mnemonicParsing="false" onAction="#excluirRegistroCliente" prefWidth="90.0" text="Excluir" GridPane.columnIndex="1">
+                                       <font>
+                                          <Font name="Arial Bold" size="16.0" />
+                                       </font>
+                                       <GridPane.margin>
+                                          <Insets right="5.0" top="5.0" />
+                                       </GridPane.margin>
+                                    </Button>
+                                 </children>
+                              </GridPane>
+                           </children>
+                        </GridPane>
+                     </children>
+                  </GridPane>
+               </children>
+            </GridPane>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </StackPane>
+      <StackPane fx:id="stackPanePagamentos" layoutX="270.0" layoutY="100.0" prefHeight="615.0" prefWidth="780.0" visible="false" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="250.0" AnchorPane.topAnchor="80.0">
+         <children>
+            <SubScene height="615.0" layoutX="10.0" layoutY="10.0" width="780.0">
+               <root>
+                  <Region />
+               </root>
+            </SubScene>
+            <GridPane>
+               <columnConstraints>
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="100.0" valignment="CENTER" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="550.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Pagamentos">
+                     <font>
+                        <Font name="Arial Bold" size="22.0" />
+                     </font>
+                  </Text>
+                  <GridPane GridPane.rowIndex="1">
+                     <columnConstraints>
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints maxHeight="350.0" minHeight="10.0" prefHeight="350.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <TableView fx:id="tabelaPagamentos" prefHeight="200.0" prefWidth="760.0">
+                           <columns>
+                              <TableColumn fx:id="tipoColPag" maxWidth="1.7976931348623157E308" prefWidth="40.0" reorderable="false" resizable="false" text="Tipo" />
+                              <TableColumn fx:id="nomeColPag" maxWidth="1.7976931348623157E308" prefWidth="155.0" reorderable="false" resizable="false" text="Nome" />
+                              <TableColumn fx:id="cpfCnpjColPag" maxWidth="1.7976931348623157E308" prefWidth="135.0" reorderable="false" resizable="false" text="CPF / CNPJ" />
+                              <TableColumn maxWidth="1.7976931348623157E308" prefWidth="125.0" reorderable="false" resizable="false" text="Período">
+                                 <columns>
+                                    <TableColumn fx:id="dataInicioColPag" prefWidth="105.0" reorderable="false" resizable="false" text="Início" />
+                                    <TableColumn fx:id="dataFimColPag" prefWidth="105.0" reorderable="false" resizable="false" text="Fim" />
+                                 </columns></TableColumn>
+                              <TableColumn fx:id="valorColPag" maxWidth="1.7976931348623157E308" prefWidth="105.0" reorderable="false" resizable="false" text="Valor" />
+                              <TableColumn fx:id="situacaoColPag" maxWidth="1.7976931348623157E308" prefWidth="110.0" reorderable="false" resizable="false" text="Situação" />
+                           </columns>
+                           <GridPane.margin>
+                              <Insets bottom="55.0" left="10.0" right="10.0" top="10.0" />
+                           </GridPane.margin>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </TableView>
+                        <GridPane GridPane.rowIndex="1">
+                           <columnConstraints>
+                              <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="TOP" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <GridPane GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="240.0" minWidth="10.0" prefWidth="240.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="TOP" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <children>
+                                    <TextField fx:id="campoBuscarPagamentos" promptText="Digite Aqui">
+                                       <GridPane.margin>
+                                          <Insets left="10.0" right="20.0" top="12.0" />
+                                       </GridPane.margin>
+                                       <font>
+                                          <Font name="Arial" size="16.0" />
+                                       </font>
+                                    </TextField>
+                                    <Button fx:id="botaoBuscarPagamentos" mnemonicParsing="false" onAction="#buscarPagamentos" prefHeight="32.0" prefWidth="45.0" text="OK" GridPane.columnIndex="1">
+                                       <GridPane.margin>
+                                          <Insets top="11.0" />
+                                       </GridPane.margin>
+                                       <font>
+                                          <Font name="Arial Bold" size="14.0" />
+                                       </font>
+                                    </Button>
+                                    <Button fx:id="botaoLimparPesquisaPag" mnemonicParsing="false" onAction="#limparTabelaPesquisaPag" prefHeight="32.0" text="Limpar" GridPane.columnIndex="1">
+                                       <font>
+                                          <Font name="Arial Bold" size="14.0" />
+                                       </font>
+                                       <GridPane.margin>
+                                          <Insets left="65.0" top="11.0" />
+                                       </GridPane.margin>
+                                    </Button>
+                                 </children>
+                              </GridPane>
+                              <ComboBox fx:id="comboBoxProcurarPagamento" prefWidth="150.0" promptText="Nome" style="-fx-font-size: 16px; -fx-font-family: 'Arial';" GridPane.rowIndex="1">
+                                 <GridPane.margin>
+                                    <Insets right="15.0" top="10.0" />
+                                 </GridPane.margin>
+                              </ComboBox>
+                              <GridPane>
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <children>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Procurar Cliente" GridPane.columnIndex="1">
+                                       <font>
+                                          <Font name="Arial" size="22.0" />
+                                       </font>
+                                       <GridPane.margin>
+                                          <Insets left="20.0" top="45.0" />
+                                       </GridPane.margin>
+                                    </Text>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="1. Pessoa Física">
+                                       <GridPane.margin>
+                                          <Insets bottom="70.0" left="20.0" />
+                                       </GridPane.margin>
+                                       <font>
+                                          <Font name="Arial" size="14.0" />
+                                       </font>
+                                    </Text>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="2. Pessoa Jurídica">
+                                       <font>
+                                          <Font name="Arial" size="14.0" />
+                                       </font>
+                                       <GridPane.margin>
+                                          <Insets bottom="25.0" left="20.0" />
+                                       </GridPane.margin>
+                                    </Text>
+                                 </children>
+                              </GridPane>
+                           </children>
+                        </GridPane>
+                        <Button fx:id="botaoAdicionarServico" mnemonicParsing="false" onAction="#adicionarServico" text="Adicionar Serviço">
+                           <font>
+                              <Font name="Arial Bold" size="16.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets right="590.0" top="295.0" />
+                           </GridPane.margin>
+                        </Button>
+                        <Button fx:id="botaoExcluirRegistroServico" mnemonicParsing="false" onAction="#excluirRegistroServico" prefWidth="90.0" text="Excluir">
+                           <font>
+                              <Font name="Arial Bold" size="16.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets left="205.0" top="295.0" />
+                           </GridPane.margin>
+                        </Button>
+                        <Button fx:id="botaoAtrasado" mnemonicParsing="false" onAction="#atualizarAtrasado" text="Atrasado">
+                           <font>
+                              <Font name="Arial Bold" size="16.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets left="435.0" top="295.0" />
+                           </GridPane.margin>
+                        </Button>
+                        <Button fx:id="botaoPago" mnemonicParsing="false" onAction="#atualizarPago" prefWidth="90.0" text="Pago">
+                           <font>
+                              <Font name="Arial Bold" size="16.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets left="660.0" top="295.0" />
+                           </GridPane.margin>
+                        </Button>
+                     </children>
+                  </GridPane>
+               </children>
+            </GridPane>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </StackPane>
+      <StackPane fx:id="stackPaneFerramentas" layoutX="280.0" layoutY="110.0" prefHeight="615.0" prefWidth="780.0" visible="false" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="250.0" AnchorPane.topAnchor="80.0">
+         <children>
+            <SubScene fx:id="ferramentasSubScene" height="615.0" layoutX="10.0" layoutY="10.0" width="780.0">
+               <root>
+                  <Region />
+               </root>
+            </SubScene>
+            <GridPane>
+               <columnConstraints>
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="100.0" valignment="CENTER" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="550.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Ferramentas">
+                     <font>
+                        <Font name="Arial Bold" size="22.0" />
+                     </font>
+                  </Text>
+                  <GridPane GridPane.rowIndex="1">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints maxHeight="300.0" minHeight="10.0" prefHeight="300.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <TableView fx:id="tabelaFerramentas" prefHeight="200.0" prefWidth="200.0">
+                           <columns>
+                              <TableColumn fx:id="nomeFerramentaCol" maxWidth="250.0" prefWidth="250.0" reorderable="false" resizable="false" style="-fx-font-size: 14px;" text="Ferramenta" />
+                              <TableColumn fx:id="localizacaoFerramentaCol" maxWidth="251.0" prefWidth="251.0" reorderable="false" resizable="false" style="-fx-font-size: 14px;" text="Localização" />
+                              <TableColumn fx:id="outrasInfoFerramentaCol" maxWidth="255.0" prefWidth="255.0" reorderable="false" resizable="false" style="-fx-font-size: 14px;" text="Outras Informações" />
+                           </columns>
+                           <GridPane.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </GridPane.margin>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </TableView>
+                        <GridPane GridPane.rowIndex="1">
+                           <columnConstraints>
+                              <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="350.0" minWidth="10.0" prefWidth="350.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="BOTTOM" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="BOTTOM" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="BOTTOM" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Localização:" GridPane.rowIndex="2">
+                                 <GridPane.margin>
+                                    <Insets bottom="5.0" right="15.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font name="Arial" size="18.0" />
+                                 </font>
+                              </Text>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Outras Informações:" GridPane.rowIndex="3">
+                                 <GridPane.margin>
+                                    <Insets bottom="5.0" right="15.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font name="Arial" size="18.0" />
+                                 </font>
+                              </Text>
+                              <TextField fx:id="campoNomeFerramenta" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <GridPane.margin>
+                                    <Insets bottom="5.0" left="25.0" right="25.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font name="Arial" size="16.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="campoOutrasInfoFerramenta" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                 <GridPane.margin>
+                                    <Insets bottom="5.0" left="25.0" right="25.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font name="Arial" size="16.0" />
+                                 </font>
+                              </TextField>
+                              <ComboBox fx:id="campoLocalFerramenta" prefWidth="302.0" style="-fx-font-size: 16px; -fx-font-family: 'Arial';" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                 <GridPane.margin>
+                                    <Insets bottom="5.0" />
+                                 </GridPane.margin>
+                              </ComboBox>
+                              <Button fx:id="botaoAdicionarFerramenta" mnemonicParsing="false" onAction="#adicionarFerramenta" text="Adicionar" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                 <font>
+                                    <Font name="Arial Bold" size="18.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets left="190.0" />
+                                 </GridPane.margin>
+                              </Button>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nome:" GridPane.rowIndex="1">
+                                 <GridPane.margin>
+                                    <Insets bottom="5.0" right="15.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font name="Arial" size="18.0" />
+                                 </font>
+                              </Text>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Adicionar Ferramenta" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Arial" size="22.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets bottom="5.0" right="200.0" />
+                                 </GridPane.margin>
+                              </Text>
+                              <GridPane GridPane.columnIndex="1">
+                                <columnConstraints>
+                                  <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                  <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="140.0" minWidth="10.0" prefWidth="140.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="TOP" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <Button fx:id="botaoExcluirFerramenta" mnemonicParsing="false" onAction="#excluirRegistroFerramenta" prefWidth="90.0" text="Excluir" GridPane.columnIndex="1">
+                                       <font>
+                                          <Font name="Arial Bold" size="16.0" />
+                                       </font>
+                                       <GridPane.margin>
+                                          <Insets right="25.0" top="5.0" />
+                                       </GridPane.margin>
+                                    </Button>
+                                 </children>
+                              </GridPane>
+                           </children>
+                        </GridPane>
+                     </children>
+                  </GridPane>
+               </children>
+            </GridPane>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </StackPane>
+      <StackPane fx:id="stackPaneCadastrar" layoutX="290.0" layoutY="120.0" prefHeight="615.0" prefWidth="780.0" visible="false" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="250.0" AnchorPane.topAnchor="80.0">
+         <children>
+            <Pane opacity="0.85" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #283A4E;">
+               <effect>
+                  <BoxBlur iterations="2" />
+               </effect>
+               <StackPane.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </StackPane.margin>
+            </Pane>
+            <SubScene fx:id="cadastrarSubScene" height="525.0" layoutX="10.0" layoutY="10.0" opacity="0.9" width="550.0">
+               <root>
+                  <Region />
+               </root>
+               <StackPane.margin>
+                  <Insets />
+               </StackPane.margin>
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color red="0.27843138575553894" green="0.27843138575553894" blue="0.27843138575553894" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </SubScene>
+            <GridPane>
+               <columnConstraints>
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="200.0" minHeight="10.0" prefHeight="200.0" valignment="CENTER" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="550.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Cadastrar Cliente">
+                     <font>
+                        <Font name="Arial Bold" size="22.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets bottom="25.0" />
+                     </GridPane.margin>
+                  </Text>
+                  <GridPane GridPane.rowIndex="1">
+                    <columnConstraints>
+                      <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="150.0" minWidth="10.0" prefWidth="150.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <GridPane.margin>
+                        <Insets left="55.0" right="55.0" />
+                     </GridPane.margin>
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nome:">
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets left="45.0" />
+                           </GridPane.margin>
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="CPF/CNPJ:" GridPane.rowIndex="1">
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets left="45.0" />
+                           </GridPane.margin>
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Endereço:" GridPane.rowIndex="2">
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets left="45.0" />
+                           </GridPane.margin>
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Bairro:" GridPane.rowIndex="3">
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets left="45.0" />
+                           </GridPane.margin>
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Município:" GridPane.rowIndex="4">
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets left="45.0" />
+                           </GridPane.margin>
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Celular:" GridPane.rowIndex="5">
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets left="45.0" />
+                           </GridPane.margin>
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="E-mail:" GridPane.rowIndex="6">
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets left="45.0" />
+                           </GridPane.margin>
+                        </Text>
+                        <TextField fx:id="campoNomeCliente" GridPane.columnIndex="1">
+                           <GridPane.margin>
+                              <Insets left="25.0" right="25.0" />
+                           </GridPane.margin>
+                           <font>
+                              <Font name="Arial" size="16.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="campoCpfCnpjCliente" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets left="25.0" right="25.0" />
+                           </GridPane.margin>
+                           <font>
+                              <Font name="Arial" size="16.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="campoEnderecoCliente" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <GridPane.margin>
+                              <Insets left="25.0" right="25.0" />
+                           </GridPane.margin>
+                           <font>
+                              <Font name="Arial" size="16.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="campoBairroCliente" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                           <GridPane.margin>
+                              <Insets left="25.0" right="25.0" />
+                           </GridPane.margin>
+                           <font>
+                              <Font name="Arial" size="16.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="campoMunicipioCliente" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                           <GridPane.margin>
+                              <Insets left="25.0" right="25.0" />
+                           </GridPane.margin>
+                           <font>
+                              <Font name="Arial" size="16.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="campoCelularCliente" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                           <GridPane.margin>
+                              <Insets left="25.0" right="25.0" />
+                           </GridPane.margin>
+                           <font>
+                              <Font name="Arial" size="16.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="campoEmailCliente" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                           <GridPane.margin>
+                              <Insets left="25.0" right="25.0" />
+                           </GridPane.margin>
+                           <font>
+                              <Font name="Arial" size="16.0" />
+                           </font>
+                        </TextField>
+                        <GridPane GridPane.columnIndex="1" GridPane.rowIndex="7">
+                          <columnConstraints>
+                            <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="BOTTOM" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Button fx:id="botaoLimparDadosCliente" mnemonicParsing="false" onAction="#limparDadosCliente" prefWidth="110.0" text="Limpar">
+                                 <font>
+                                    <Font name="Arial Bold" size="18.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets right="25.0" />
+                                 </GridPane.margin>
+                              </Button>
+                              <Button fx:id="botaoCadastrarCliente" mnemonicParsing="false" onAction="#cadastrarCliente" prefWidth="110.0" text="Cadastrar" GridPane.columnIndex="1">
+                                 <font>
+                                    <Font name="Arial Bold" size="18.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets left="25.0" />
+                                 </GridPane.margin>
+                              </Button>
+                           </children>
+                        </GridPane>
+                     </children>
+                  </GridPane>
+                  <Button fx:id="botaoFecharTelaCadastrar" mnemonicParsing="false" onAction="#fecharTelaCadastrar" text="X">
+                     <font>
+                        <Font name="Arial Bold" size="14.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets bottom="85.0" left="515.0" />
+                     </GridPane.margin>
+                  </Button>
+               </children>
+               <padding>
+                  <Insets bottom="75.0" left="75.0" right="75.0" top="75.0" />
+               </padding>
+            </GridPane>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </StackPane>
+      <StackPane fx:id="stackPaneBuscar" layoutX="300.0" layoutY="130.0" prefHeight="615.0" prefWidth="460.0" visible="false" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="250.0" AnchorPane.topAnchor="80.0">
+         <children>
+            <Pane opacity="0.85" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #2E0000;">
+               <effect>
+                  <BoxBlur iterations="2" />
+               </effect>
+               <StackPane.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </StackPane.margin>
+            </Pane>
+            <SubScene height="150.0" opacity="0.9" width="325.0" StackPane.alignment="CENTER_RIGHT">
+               <root>
+                  <Region />
+               </root>
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color red="0.27843138575553894" green="0.27843138575553894" blue="0.27843138575553894" />
+                     </color>
+                  </DropShadow>
+               </effect>
+               <StackPane.margin>
+                  <Insets right="10.0" top="200.0" />
+               </StackPane.margin>
+            </SubScene>
+            <GridPane>
+               <columnConstraints>
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="60.0" minHeight="10.0" prefHeight="60.0" valignment="TOP" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <StackPane.margin>
+                  <Insets bottom="135.0" left="450.0" right="10.0" top="335.0" />
+               </StackPane.margin>
+               <children>
+                  <GridPane>
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="125.0" minWidth="10.0" prefWidth="125.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="BOTTOM" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Ferramenta:">
+                           <GridPane.margin>
+                              <Insets bottom="15.0" left="20.0" />
+                           </GridPane.margin>
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font>
+                        </Text>
+                        <TextField fx:id="campoBuscarFerramenta" promptText="Digite Aqui" GridPane.columnIndex="1">
+                           <GridPane.margin>
+                              <Insets bottom="10.0" left="20.0" right="20.0" />
+                           </GridPane.margin>
+                           <font>
+                              <Font name="Arial" size="16.0" />
+                           </font>
+                        </TextField>
+                        <Button fx:id="botaoFecharTelaBuscarFerramenta" mnemonicParsing="false" onAction="#fecharTelaBuscarFerramenta" text="X" GridPane.columnIndex="1">
+                           <font>
+                              <Font name="Arial Bold" size="14.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets bottom="58.0" left="163.0" />
+                           </GridPane.margin>
+                        </Button>
+                     </children>
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                  </GridPane>
+                  <GridPane GridPane.rowIndex="1">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="125.0" minWidth="10.0" prefWidth="125.0" />
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <Button fx:id="botaoBuscar" mnemonicParsing="false" onAction="#buscarFerramenta" text="Buscar" GridPane.columnIndex="1">
+                           <font>
+                              <Font name="Arial Bold" size="18.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets bottom="10.0" />
+                           </GridPane.margin>
+                        </Button>
+                     </children>
+                  </GridPane>
+               </children>
+            </GridPane>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </StackPane>
+      <StackPane fx:id="stackPaneCadastrarServico" prefHeight="615.0" prefWidth="780.0" visible="false" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="250.0" AnchorPane.topAnchor="80.0">
+         <children>
+            <Pane opacity="0.85" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #0A3903;">
+               <effect>
+                  <BoxBlur iterations="2" />
+               </effect>
+               <StackPane.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </StackPane.margin>
+            </Pane>
+            <SubScene height="525.0" opacity="0.9" width="550.0">
+               <root>
+                  <Region />
+               </root>
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color red="0.27843138575553894" green="0.27843138575553894" blue="0.27843138575553894" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </SubScene>
+            <GridPane>
+               <columnConstraints>
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="200.0" minHeight="10.0" prefHeight="200.0" valignment="CENTER" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="550.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Adicionar Serviço">
+                     <font>
+                        <Font name="Arial Bold" size="22.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets bottom="25.0" />
+                     </GridPane.margin>
+                  </Text>
+                  <GridPane GridPane.rowIndex="1">
+                     <columnConstraints>
+                        <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="200.0" minWidth="10.0" prefWidth="200.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <GridPane.margin>
+                        <Insets left="55.0" right="55.0" />
+                     </GridPane.margin>
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nome:">
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets left="45.0" />
+                           </GridPane.margin>
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="CPF/CNPJ:" GridPane.rowIndex="1">
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets left="45.0" />
+                           </GridPane.margin>
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Período:" GridPane.rowIndex="2">
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets left="45.0" />
+                           </GridPane.margin>
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Valor:" GridPane.rowIndex="3">
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets left="45.0" />
+                           </GridPane.margin>
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Forma de Pag.:" GridPane.rowIndex="4">
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets left="45.0" />
+                           </GridPane.margin>
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Situação:" GridPane.rowIndex="5">
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets left="45.0" />
+                           </GridPane.margin>
+                        </Text>
+                        <TextField fx:id="campoCpfCnpjClienteServico" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets left="25.0" right="25.0" />
+                           </GridPane.margin>
+                           <font>
+                              <Font name="Arial" size="16.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="campoValorServico" promptText="R$" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                           <GridPane.margin>
+                              <Insets left="25.0" right="25.0" />
+                           </GridPane.margin>
+                           <font>
+                              <Font name="Arial" size="16.0" />
+                           </font>
+                        </TextField>
+                        <GridPane GridPane.columnIndex="1" GridPane.rowIndex="6">
+                           <columnConstraints>
+                              <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="BOTTOM" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Button fx:id="botaoLimparDadosServico" mnemonicParsing="false" onAction="#limparDadosServico" prefWidth="110.0" text="Limpar">
+                                 <font>
+                                    <Font name="Arial Bold" size="18.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets right="25.0" />
+                                 </GridPane.margin>
+                              </Button>
+                              <Button fx:id="botaoCadastrarServico" mnemonicParsing="false" onAction="#cadastrarServico" prefWidth="110.0" text="Cadastrar" GridPane.columnIndex="1">
+                                 <font>
+                                    <Font name="Arial Bold" size="18.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets left="25.0" />
+                                 </GridPane.margin>
+                              </Button>
+                           </children>
+                        </GridPane>
+                        <ChoiceBox fx:id="campoClienteServico" prefWidth="270.0" style="-fx-font-size: 16px; -fx-font-family: 'Arial';" GridPane.columnIndex="1">
+                           <GridPane.margin>
+                              <Insets left="25.0" />
+                           </GridPane.margin>
+                        </ChoiceBox>
+                        <GridPane GridPane.columnIndex="1" GridPane.rowIndex="2">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <DatePicker fx:id="campoDataServicoInicio" promptText="Início" style="-fx-font-size: 16px;">
+                                 <GridPane.margin>
+                                    <Insets left="25.0" right="10.0" />
+                                 </GridPane.margin>
+                              </DatePicker>
+                              <DatePicker fx:id="campoDataServicoFim" promptText="Final" style="-fx-font-size: 16px;" GridPane.columnIndex="1">
+                                 <GridPane.margin>
+                                    <Insets left="10.0" right="25.0" />
+                                 </GridPane.margin>
+                              </DatePicker>
+                           </children>
+                        </GridPane>
+                        <ChoiceBox fx:id="campoSituacaoPagServico" prefWidth="270.0" style="-fx-font-size: 16px; -fx-font-family: 'Arial';" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                           <GridPane.margin>
+                              <Insets left="25.0" />
+                           </GridPane.margin>
+                        </ChoiceBox>
+                        <ComboBox fx:id="campoFormaPagServico" editable="true" prefWidth="270.0" style="-fx-font-size: 16px; -fx-font-family: 'Arial';" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                           <GridPane.margin>
+                              <Insets left="25.0" />
+                           </GridPane.margin>
+                        </ComboBox>
+                     </children>
+                  </GridPane>
+                  <Button fx:id="botaoFecharTelaServico" mnemonicParsing="false" onAction="#fecharTelaServico" text="X">
+                     <font>
+                        <Font name="Arial Bold" size="14.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets bottom="85.0" left="515.0" />
+                     </GridPane.margin>
+                  </Button>
+               </children>
+               <padding>
+                  <Insets bottom="75.0" left="75.0" right="75.0" top="75.0" />
+               </padding>
+            </GridPane>
+         </children>
+      </StackPane>
+      <StackPane fx:id="stackPaneEditar" layoutX="260.0" layoutY="90.0" prefHeight="615.0" prefWidth="780.0" visible="false" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="250.0" AnchorPane.topAnchor="80.0">
+         <children>
+            <Pane opacity="0.85" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #283A4E;">
+               <effect>
+                  <BoxBlur iterations="2" />
+               </effect>
+               <StackPane.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </StackPane.margin>
+            </Pane>
+            <SubScene height="525.0" layoutX="10.0" layoutY="10.0" opacity="0.9" width="550.0">
+               <root>
+                  <Region />
+               </root>
+               <StackPane.margin>
+                  <Insets />
+               </StackPane.margin>
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color red="0.27843138575553894" green="0.27843138575553894" blue="0.27843138575553894" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </SubScene>
+            <GridPane>
+               <columnConstraints>
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="200.0" minHeight="10.0" prefHeight="200.0" valignment="CENTER" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="550.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Cliente">
+                     <font>
+                        <Font name="Arial Bold" size="22.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets bottom="25.0" />
+                     </GridPane.margin>
+                  </Text>
+                  <GridPane GridPane.rowIndex="1">
+                     <columnConstraints>
+                        <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="150.0" minWidth="10.0" prefWidth="150.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <GridPane.margin>
+                        <Insets left="55.0" right="55.0" />
+                     </GridPane.margin>
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nome:">
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets left="45.0" />
+                           </GridPane.margin>
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="CPF/CNPJ:" GridPane.rowIndex="1">
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets left="45.0" />
+                           </GridPane.margin>
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Endereço:" GridPane.rowIndex="2">
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets left="45.0" />
+                           </GridPane.margin>
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Bairro:" GridPane.rowIndex="3">
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets left="45.0" />
+                           </GridPane.margin>
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Município:" GridPane.rowIndex="4">
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets left="45.0" />
+                           </GridPane.margin>
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Celular:" GridPane.rowIndex="5">
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets left="45.0" />
+                           </GridPane.margin>
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="E-mail:" GridPane.rowIndex="6">
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets left="45.0" />
+                           </GridPane.margin>
+                        </Text>
+                        <TextField fx:id="campoNomeClienteE" GridPane.columnIndex="1">
+                           <GridPane.margin>
+                              <Insets left="25.0" right="25.0" />
+                           </GridPane.margin>
+                           <font>
+                              <Font name="Arial" size="16.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="campoCpfCnpjClienteE" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets left="25.0" right="25.0" />
+                           </GridPane.margin>
+                           <font>
+                              <Font name="Arial" size="16.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="campoEnderecoClienteE" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <GridPane.margin>
+                              <Insets left="25.0" right="25.0" />
+                           </GridPane.margin>
+                           <font>
+                              <Font name="Arial" size="16.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="campoBairroClienteE" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                           <GridPane.margin>
+                              <Insets left="25.0" right="25.0" />
+                           </GridPane.margin>
+                           <font>
+                              <Font name="Arial" size="16.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="campoMunicipioClienteE" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                           <GridPane.margin>
+                              <Insets left="25.0" right="25.0" />
+                           </GridPane.margin>
+                           <font>
+                              <Font name="Arial" size="16.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="campoCelularClienteE" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                           <GridPane.margin>
+                              <Insets left="25.0" right="25.0" />
+                           </GridPane.margin>
+                           <font>
+                              <Font name="Arial" size="16.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="campoEmailClienteE" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                           <GridPane.margin>
+                              <Insets left="25.0" right="25.0" />
+                           </GridPane.margin>
+                           <font>
+                              <Font name="Arial" size="16.0" />
+                           </font>
+                        </TextField>
+                        <GridPane GridPane.columnIndex="1" GridPane.rowIndex="7">
+                           <columnConstraints>
+                              <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="BOTTOM" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Button fx:id="botaoCancelarClienteE" mnemonicParsing="false" onAction="#cancelarEdicao" prefWidth="110.0" text="Cancelar">
+                                 <font>
+                                    <Font name="Arial Bold" size="18.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets right="25.0" />
+                                 </GridPane.margin>
+                              </Button>
+                              <Button fx:id="botaoSalvarCliente" mnemonicParsing="false" onAction="#salvarEdicaoCliente" prefWidth="110.0" text="Salvar" GridPane.columnIndex="1">
+                                 <font>
+                                    <Font name="Arial Bold" size="18.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets left="25.0" />
+                                 </GridPane.margin>
+                              </Button>
+                           </children>
+                        </GridPane>
+                     </children>
+                  </GridPane>
+                  <Button fx:id="botaoFecharTelaEditar" mnemonicParsing="false" onAction="#fecharTelaEditar" text="X">
+                     <font>
+                        <Font name="Arial Bold" size="14.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets bottom="85.0" left="515.0" />
+                     </GridPane.margin>
+                  </Button>
+               </children>
+               <padding>
+                  <Insets bottom="75.0" left="75.0" right="75.0" top="75.0" />
+               </padding>
+            </GridPane>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </StackPane>
+      <StackPane fx:id="stackPaneVisualizarCliente" layoutX="260.0" layoutY="90.0" prefHeight="615.0" prefWidth="780.0" visible="false" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="250.0" AnchorPane.topAnchor="80.0">
+         <children>
+            <Pane opacity="0.85" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #283A4E;">
+               <effect>
+                  <BoxBlur iterations="2" />
+               </effect>
+               <StackPane.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </StackPane.margin>
+            </Pane>
+            <SubScene height="525.0" layoutX="10.0" layoutY="10.0" opacity="0.9" width="550.0">
+               <root>
+                  <Region />
+               </root>
+               <StackPane.margin>
+                  <Insets />
+               </StackPane.margin>
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color red="0.27843138575553894" green="0.27843138575553894" blue="0.27843138575553894" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </SubScene>
+            <GridPane>
+               <columnConstraints>
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="200.0" minHeight="10.0" prefHeight="200.0" valignment="CENTER" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="550.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Cliente">
+                     <font>
+                        <Font name="Arial Bold" size="22.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets bottom="25.0" />
+                     </GridPane.margin>
+                  </Text>
+                  <GridPane GridPane.rowIndex="1">
+                     <columnConstraints>
+                        <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="150.0" minWidth="10.0" prefWidth="150.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <GridPane.margin>
+                        <Insets left="55.0" right="55.0" />
+                     </GridPane.margin>
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nome:">
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets left="45.0" />
+                           </GridPane.margin>
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="CPF/CNPJ:" GridPane.rowIndex="1">
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets left="45.0" />
+                           </GridPane.margin>
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Endereço:" GridPane.rowIndex="2">
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets left="45.0" />
+                           </GridPane.margin>
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Bairro:" GridPane.rowIndex="3">
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets left="45.0" />
+                           </GridPane.margin>
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Município:" GridPane.rowIndex="4">
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets left="45.0" />
+                           </GridPane.margin>
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Celular:" GridPane.rowIndex="5">
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets left="45.0" />
+                           </GridPane.margin>
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="E-mail:" GridPane.rowIndex="6">
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets left="45.0" />
+                           </GridPane.margin>
+                        </Text>
+                        <TextField fx:id="campoNomeClienteV" editable="false" GridPane.columnIndex="1">
+                           <GridPane.margin>
+                              <Insets left="25.0" right="25.0" />
+                           </GridPane.margin>
+                           <font>
+                              <Font name="Arial" size="16.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="campoCpfCnpjClienteV" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets left="25.0" right="25.0" />
+                           </GridPane.margin>
+                           <font>
+                              <Font name="Arial" size="16.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="campoEnderecoClienteV" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <GridPane.margin>
+                              <Insets left="25.0" right="25.0" />
+                           </GridPane.margin>
+                           <font>
+                              <Font name="Arial" size="16.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="campoBairroClienteV" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                           <GridPane.margin>
+                              <Insets left="25.0" right="25.0" />
+                           </GridPane.margin>
+                           <font>
+                              <Font name="Arial" size="16.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="campoMunicipioClienteV" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                           <GridPane.margin>
+                              <Insets left="25.0" right="25.0" />
+                           </GridPane.margin>
+                           <font>
+                              <Font name="Arial" size="16.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="campoCelularClienteV" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                           <GridPane.margin>
+                              <Insets left="25.0" right="25.0" />
+                           </GridPane.margin>
+                           <font>
+                              <Font name="Arial" size="16.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="campoEmailClienteV" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                           <GridPane.margin>
+                              <Insets left="25.0" right="25.0" />
+                           </GridPane.margin>
+                           <font>
+                              <Font name="Arial" size="16.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </GridPane>
+                  <Button fx:id="botaoFecharTelaVisualizar" mnemonicParsing="false" onAction="#fecharTelaVisualizarCliente" text="X">
+                     <font>
+                        <Font name="Arial Bold" size="14.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets bottom="85.0" left="515.0" />
+                     </GridPane.margin>
+                  </Button>
+               </children>
+               <padding>
+                  <Insets bottom="75.0" left="75.0" right="75.0" top="75.0" />
+               </padding>
+            </GridPane>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </StackPane>
+   </children>
+</AnchorPane>
